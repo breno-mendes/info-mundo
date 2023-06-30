@@ -14,7 +14,7 @@ import dash_bootstrap_components as dbc
 import utils
 
 # Especifica o absolute path para os assets
-assets_path = os.getcwd() +'./assets/'
+assets_path = os.path.dirname(__file__)+'./assets/'
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY], assets_folder=assets_path)
 server = app.server
