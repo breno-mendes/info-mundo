@@ -18,29 +18,42 @@ import utils
 
 
 # Especifica o absolute path para os assets
-assets_path = os.getcwd() +'./assets/'
+# assets_path = os.getcwd() +'./assets/'
+
+# Obtém o caminho absoluto para a pasta "assets"
+assets_folder = "static"
+# assets_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), assets_folder)
 
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY], assets_folder=assets_path)
+project_root = os.path.dirname(os.path.abspath(__file__))
+assets_path = os.path.join(project_root, assets_folder)
+
+# print('!!!!!!!: ' + assets_path)
+
+app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY], assets_folder=assets_path, assets_url_path="/static")
 server = app.server
 
-server.wsgi_app = WhiteNoise(server.wsgi_app, root="assets/")
+# server.wsgi_app = WhiteNoise(server.wsgi_app, root="assets/")
 
 # Definição de título e ícone do site
-path_favicon = app.get_asset_url("icons/favicon.ico")
+path_favicon = os.path.join(assets_path, "icons" ,"favicon.ico")
+
+# print('######' + path_favicon)
 
 app.title='Info Mundo'
-app._favicon = path_favicon
+if os.path.exists(path_favicon):
+    app._favicon = path_favicon
+# app._favicon = path_favicon
 
 # ===================================================================
 # Leitura dos datasets
-info_mundo = pd.read_csv('./data/hdi_info.csv')
-regioes = pd.read_excel("./data/regioes.xlsx") # Necessário: pip install openpyxl
-df_populacao = pd.read_csv('./data/world_population.csv')
+info_mundo = pd.read_csv(os.path.join(server.static_folder, 'data', 'hdi_info.csv'))
+regioes = pd.read_excel(os.path.join(server.static_folder, 'data', 'regioes.xlsx'))
+df_populacao = pd.read_csv(os.path.join(server.static_folder, 'data', 'world_population.csv'))
 
 # ====================================================================
 # Operações com o GeoJSON
-with open("./data/custom.geo.json", "r", encoding="utf-8") as f:
+with open(os.path.join(server.static_folder, 'data', 'custom.geo.json'), "r", encoding="utf-8") as f:
     json_paises = geojson.load(f)
 paises_locations = json_paises['features']
 
