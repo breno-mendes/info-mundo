@@ -1,7 +1,7 @@
 pandas
 dash==2.10.2
 plotly==5.14.1
-numpy==1.23.5
+numpy
 dash-bootstrap-components==1.4.1
 openpyxl==3.1.2
 geojson==3.0.1
