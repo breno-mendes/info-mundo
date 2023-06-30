@@ -48,16 +48,6 @@ body {
     font-weight: 700;
 }
 
-/* Estilos para a linha de informações */
-.info-row {
-    /* Estilize a linha de informações conforme necessário */
-}
-
-/* Estilos para o contêiner do gráfico */
-.chart-container {
-    /* Estilize o contêiner do gráfico conforme necessário */
-}
-
 /* Estilos para a barra lateral */
 .sidebar {
     padding: 25px;
@@ -96,15 +86,6 @@ body {
     position: absolute;
     z-index: 1;
 }
-
-/* .radio-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    background-color: transparent;
-    padding: 10px;
-} */
 
 .grafico-container {
     display: flex;

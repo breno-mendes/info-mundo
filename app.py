@@ -11,39 +11,24 @@ from dash import Dash, dcc, html, Input, Output, State
 
 import dash_bootstrap_components as dbc
 
-from whitenoise import WhiteNoise
-
 import utils
 
 
-
-# Especifica o absolute path para os assets
-# assets_path = os.getcwd() +'./assets/'
-
 # Obtém o caminho absoluto para a pasta "assets"
 assets_folder = "static"
-# assets_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), assets_folder)
-
 
 project_root = os.path.dirname(os.path.abspath(__file__))
 assets_path = os.path.join(project_root, assets_folder)
 
-# print('!!!!!!!: ' + assets_path)
-
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY], assets_folder=assets_path, assets_url_path="/static")
 server = app.server
-
-# server.wsgi_app = WhiteNoise(server.wsgi_app, root="assets/")
 
 # Definição de título e ícone do site
 path_favicon = os.path.join(assets_path, "icons" ,"favicon.ico")
 
-# print('######' + path_favicon)
-
 app.title='Info Mundo'
 if os.path.exists(path_favicon):
     app._favicon = path_favicon
-# app._favicon = path_favicon
 
 # ===================================================================
 # Leitura dos datasets
@@ -112,7 +97,6 @@ dropdown_opcoes_mapa = [
 
 # ======================================================
 # Criação do mapa
-# featureidkey=paises_locations['properties']['iso_a3'],
 fig_mapa = px.choropleth_mapbox(info_mundo, locations='ISO3', geojson=json_paises, color="Human Development Index (2021)",
                             center={"lat": 14.778986, "lon": -15.723305}, zoom=2,
                             color_continuous_scale='ylgn', opacity=0.4,
@@ -271,7 +255,6 @@ def selecionar_pais(pais):
     global pais_atual
     global grafico
 
-    print(pais)
     if pais is not None:
         if pais == 'Mundo':
             populacao_total = recorte_mundo['2022 Population'].sum()
@@ -319,9 +302,7 @@ def selecionar_pais(pais):
             expectativa_vida = "{} anos".format(int(expectativa_vida_valor))
 
             area_valor = pais_selecionado['Area (km²)'].values[0]
-            area =  utils.formatar_area(area_valor)
-            print('area: ')
-            print(area)           
+            area =  utils.formatar_area(area_valor)         
 
             # Criação de uma variável global para renderizar o mesmo gráfico quando o pais for trocado
             grafico_atual = grafico
@@ -361,8 +342,6 @@ def mostrar_grafico_selecionado(tipo_grafico, pais):
 
     grafico = tipo_grafico
 
-    print('Tipo grafico: ' + tipo_grafico)
-    print(type(tipo_grafico))
     pais_atual = pais
     if tipo_grafico == "":
         fig = utils.padronizar_grafico(fig)
@@ -425,7 +404,6 @@ def update_location(click_data):
     [Input(component_id='radio-items', component_property='value')],
 )
 def update_map(opcao_mapa):
-    print(opcao_mapa)
     if opcao_mapa is not None:
         if opcao_mapa == 'idh':
             opcao_escolhida = "Human Development Index (2021)"
@@ -435,8 +413,6 @@ def update_map(opcao_mapa):
             opcao_escolhida = "Gross National Income Per Capita (2021)"
         elif opcao_mapa == 'expectativa_vida':
             opcao_escolhida = "Life Expectancy at Birth (2021)"
-        print('Opcao: ' + opcao_escolhida)
-        print(type(opcao_escolhida))
 
         mapa = px.choropleth_mapbox(recorte_mundo, locations='ISO3', geojson=json_paises, color=opcao_escolhida,
                                 center={"lat": 14.778986, "lon": -15.723305}, zoom=2,
