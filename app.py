@@ -17,6 +17,7 @@ import utils
 assets_path = os.getcwd() +'./assets/'
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY], assets_folder=assets_path)
+server = app.server
 
 # Definição de título e ícone do site
 path_favicon = app.get_asset_url("icons/favicon.ico")
