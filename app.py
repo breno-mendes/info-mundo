@@ -229,7 +229,7 @@ app.layout = dbc.Container(
             dcc.Loading(id='loading', type='default', children=[dcc.Graph(id='choropleth-map', figure=fig_mapa, className='mapa')])        
         ], md=7, className='map-col')
     ], className="main-row"),
-    fluid=True, style={'width': '100%', 'height': '100vh'}
+    fluid=True, style={'width': '100%', 'height': '100vh', 'padding-right': '0px'}
 )
 
 # ================================================================
