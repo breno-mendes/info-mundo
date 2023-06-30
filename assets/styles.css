@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Rubik:wght@400;500;600;700&display=swap");
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+/* Estilos para o cabeçalho */
+.header {
+    padding: 0px 50px 5px 25px;
+    background-color: #f7f5f6;
+}
+
+/* Estilos para rótulos de entrada */
+.input-label {
+    margin-top: 40px;
+}
+
+/* Estilos para o dropdown */
+.dropdown {
+    /* Estilize o dropdown conforme necessário */
+    margin-bottom: 10px;
+}
+
+/* Estilos para os cartões de informações */
+.info-card {
+    font-size: 20px;
+    color: #5d6461;
+    background-color: #ffffff;
+
+    margin-top: 10px;
+    box-shadow: 0 4px 4px 0 rgba(66, 65, 65, 0.15),
+        0 4px 20px 0 rgba(129, 129, 129, 0.19);
+    border-radius: 10px;
+}
+
+.info-card .info-destaque {
+    color: #34ce00;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.info-card .info-menor {
+    color: #2a6017;
+    /* color: #34ce00; */
+    font-weight: 700;
+}
+
+/* Estilos para a linha de informações */
+.info-row {
+    /* Estilize a linha de informações conforme necessário */
+}
+
+/* Estilos para o contêiner do gráfico */
+.chart-container {
+    /* Estilize o contêiner do gráfico conforme necessário */
+}
+
+/* Estilos para a barra lateral */
+.sidebar {
+    padding: 25px;
+    background-color: #f7f5f6;
+}
+
+/* Estilos para a linha principal */
+.main-row {
+    /* Estilize a linha principal conforme necessário */
+    height: 100%;
+    width: 100%;
+}
+
+.map-col {
+    padding-right: 0px;
+    padding-left: 0px;
+    position: relative;
+}
+
+.radio-container {
+    /* position: relative; */
+    position: absolute;
+    z-index: 2;
+    top: 5%;
+    left: 40%;
+    z-index: 1000;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: 700;
+    color: #16350a;
+}
+
+.mapa {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+/* .radio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: transparent;
+    padding: 10px;
+} */
+
+.grafico-container {
+    display: flex;
+    justify-content: center;
+}
+
+.user-select-none.svg-container {
+    margin: auto;
+}
+
+.info-adicional {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-adicional-text {
+    color: #34ce00;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card-info-adicional {
+    display: flex;
+}
+
+.tipo-info-adicional {
+    padding-right: 10px;
+}
