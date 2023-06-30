@@ -11,13 +11,20 @@ from dash import Dash, dcc, html, Input, Output, State
 
 import dash_bootstrap_components as dbc
 
+from whitenoise import WhiteNoise
+
 import utils
 
+
+
 # Especifica o absolute path para os assets
-assets_path = os.path.dirname(__file__)+'./assets/'
+assets_path = os.getcwd() +'./assets/'
+
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.MINTY], assets_folder=assets_path)
 server = app.server
+
+server.wsgi_app = WhiteNoise(server.wsgi_app, root="assets/")
 
 # Definição de título e ícone do site
 path_favicon = app.get_asset_url("icons/favicon.ico")

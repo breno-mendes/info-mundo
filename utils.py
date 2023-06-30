@@ -4,8 +4,7 @@ import plotly.graph_objects as go
 import numpy as np
 import os
 
-assets_path = os.path.dirname(__file__) +'./assets/'
-
+assets_path = os.getcwd() +'./assets/'
 
 def busca_pais_pelo_iso3(df, sigla_pais):
     pais = df[df['ISO3'] == sigla_pais]
@@ -125,7 +124,7 @@ def plot_expectativa_vida_pais(recorte_expectativa_vida, nome_pais):
 
 def obter_caminho_bandeira(sigla_pais):
     # Diretório onde as bandeiras estão localizadas
-    pasta_bandeira = os.path.join(os.path.dirname(__file__), "/bandeiras")
+    pasta_bandeira = "bandeiras/"
 
     # Caminho completo para o arquivo da bandeira
     caminho_bandeira = os.path.join(pasta_bandeira, f"{sigla_pais}.png")
