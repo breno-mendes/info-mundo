@@ -4,6 +4,8 @@ Info Mundo é uma dashboard desenvolvida utilizando o framework Dash.
 
 Com apenas um clique, obtenha as informações mais relevantes sobre qualquer país no mundo. Escolha o gráfico desejado para visualizar como algumas métricas (IDH, População, Expectativa de Vida) evoluiram ao longo dos anos.
 
+Link do site: [Info Mundo](https://info-mundo.onrender.com)
+
 ## Demonstração
 
 ![ezgif-4-1f69aacc82](https://github.com/breno-mendes/info-mundo/assets/21254204/02917284-410c-4e1e-a713-e4cee29ca0c6)
